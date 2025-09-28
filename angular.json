@@ -21,8 +21,8 @@
                 "input": "src/assets",
                 "output": "assets"
               },
-              "src/favicon.ico", 
-              "src/404.html"     
+              "src/favicon.ico",
+              "src/404.html"   
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -49,51 +49,20 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/EscapeRoom/" 
+              "baseHref": "/NaveOrionEscapeRoom-Final/" 
             },
             "development": {
               "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
+              "extractLicenses": false
             }
           },
           "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "NaveOrionEscapeRoom:build:production"
-            },
-            "development": {
-              "buildTarget": "NaveOrionEscapeRoom:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
-        },
-        "test": {
-          "builder": "@angular/build:karma",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ]
-          }
-        },
+        
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/EscapeRoom/",
+            "baseHref": "/NaveOrionEscapeRoom-Final/", 
             "dir": "dist/NaveOrionEscapeRoom"
           }
         }
