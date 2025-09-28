@@ -1,0 +1,61 @@
+<div class="activity-container">
+    <div class="top-controls-container">
+        <div class="left-controls">
+            <button class="back-btn" (click)="goBack()">Atrás</button>
+        </div>
+        
+    </div>
+
+    <div #imageWrapper class="image-wrapper" [ngClass]="{'full-screen': isFullScreen}" (mousedown)="startDrag($event)" (mousemove)="drag($event)" (mouseup)="stopDrag()" (mouseleave)="stopDrag()">
+        <img #mainImage src="assets/img/BOTON 1.jpeg" 
+             alt="Imagen principal de la actividad" 
+             class="main-image"
+             [style.transform]="'scale(' + zoomLevel + ') translate(' + panX + 'px, ' + panY + 'px)'"
+             [style.cursor]="isDragging ? 'grabbing' : 'grab'">
+    </div>
+
+    <div class="bottom-controls-container">
+        <button class="zoom-btn" (click)="zoomIn()">+</button>
+        <button class="zoom-btn" (click)="zoomOut()">-</button>
+        <button *ngIf="!isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Pantalla Completa</button>
+        <button *ngIf="isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Salir de Pantalla Completa</button>
+    </div>
+
+    <div class="button-container">
+        <button class="option-btn" (click)="checkAnswer('A')">P</button>
+        <button class="option-btn" (click)="checkAnswer('B')">R</button>
+        <button class="option-btn" (click)="checkAnswer('C')">B</button>
+        <button class="option-btn" (click)="checkAnswer('D')">A</button>
+        <button class="option-btn" (click)="checkAnswer('E')">T</button>
+    </div>
+
+    <div *ngIf="showMessage" class="message-box message-box-white">
+        <div *ngIf="isCorrect && showSolutionContent">
+            <div class="solution-header">La respuesta correcta es la B</div>
+            <p>Puedes obtener esta respuesta haciendo cuidadosamente cada movimiento como se describe y viendo dónde terminas, pero una forma más rápida es darte cuenta de que lo que hace esta tarea es **ordenar las pilas**.</p>
+            <p>De hecho, a medida que movemos el marcador, en cada punto las pilas a la izquierda del contador se ordenan de menor a mayor. Usando el movimiento 2, el contador se moverá a la derecha siempre que este orden se mantenga correcto. Si se encuentra una pila que no está en la posición correcta, una serie de movimientos 1 "llevará" esa pila a la posición correcta y el contador podrá comenzar a moverse a la derecha nuevamente.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="showComputationalExplanation()">¿Por qué es pensamiento computacional?</button>
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+            </div>
+        </div>
+
+        <div *ngIf="!isCorrect">
+            <p>Respuesta incorrecta. Inténtalo de nuevo.</p>
+            <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+        </div>
+
+        <div *ngIf="isCorrect && !showSolutionContent">
+            <div class="solution-header">¿Por qué es pensamiento computacional?</div>
+            <p>Los estudiantes deben comprender y ejecutar un algoritmo para encontrar la respuesta a esta pregunta, aunque el paso ingenioso es darse cuenta de que el algoritmo no necesita ser ejecutado por completo para responderla.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+                <button *ngIf="showActivity2Button" class="next-btn" (click)="goToActivity2()">Ir a Actividad 2</button>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="isFullScreen" class="exit-message">
+        <p>Para salir de pantalla completa, presiona la tecla **ESC**</p>
+    </div>
+</div>

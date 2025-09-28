@@ -1,0 +1,49 @@
+<div class="activity-container">
+    
+    <div class="top-controls">
+        <button class="back-btn" (click)="irAInicio()">🏠 Inicio</button>
+    </div>
+
+    <div class="header-content">
+        <h1 class="main-title">🌟 ¡El Desafío Final! 🌟</h1>
+        
+        <h2 class="subtitle">¿Descubriste la palabra?</h2>
+        
+        <p class="instruction-text">Escribe la palabra en estos espacios:</p>
+    </div>
+
+    <div class="input-container">
+        <input 
+            *ngFor="let letra of letrasUsuario; let i = index"
+            [id]="'letra-' + i"
+            [(ngModel)]="letrasUsuario[i]"
+            (keydown)="onKeyDown(i, $event)"
+            maxlength="1"
+            class="letra-input"
+            type="text"
+            autocomplete="off"
+            placeholder="—"
+            aria-label="Espacio para letra {{ i + 1 }}"
+        >
+    </div>
+
+    <div class="control-buttons">
+        <button class="check-btn" (click)="comprobarPalabra()">Comprobar Palabra</button>
+        <button class="reset-btn" (click)="reintentar()">Borrar / Reintentar</button>
+    </div>
+
+    <div *ngIf="mensajeResultado" class="message-box message-box-final" [ngClass]="{'correct-message': mostrarGlobos, 'incorrect-message': !mostrarGlobos}">
+        <p>{{ mensajeResultado }}</p>
+        
+        <div *ngIf="mostrarGlobos" class="final-button-container">
+            <button class="next-btn" (click)="reintentar()">¡Jugar de Nuevo!</button>
+        </div>
+    </div>
+
+    <div *ngIf="mostrarGlobos" class="confetti-container">
+        <div class="balloon-1"></div>
+        <div class="balloon-2"></div>
+        <div class="balloon-3"></div>
+        <div class="balloon-4"></div>
+    </div>
+</div>

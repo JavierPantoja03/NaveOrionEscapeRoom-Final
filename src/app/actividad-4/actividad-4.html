@@ -1,0 +1,59 @@
+<div class="activity-container">
+    <div class="top-controls-container">
+        <div class="left-controls">
+            <button class="back-btn" (click)="goBack()">Atrás</button>
+        </div>
+        
+    </div>
+
+    <div #imageWrapper class="image-wrapper" [ngClass]="{'full-screen': isFullScreen}" (mousedown)="startDrag($event)" (mousemove)="drag($event)" (mouseup)="stopDrag()" (mouseleave)="stopDrag()">
+        <img #mainImage src="assets/img/BOTON 4.jpeg" 
+             alt="Imagen principal de la actividad" 
+             class="main-image"
+             [style.transform]="'scale(' + zoomLevel + ') translate(' + panX + 'px, ' + panY + 'px)'"
+             [style.cursor]="isDragging ? 'grabbing' : 'grab'">
+    </div>
+
+    <div class="bottom-controls-container">
+        <button class="zoom-btn" (click)="zoomIn()">+</button>
+        <button class="zoom-btn" (click)="zoomOut()">-</button>
+        <button *ngIf="!isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Pantalla Completa</button>
+        <button *ngIf="isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Salir de Pantalla Completa</button>
+    </div>
+
+    <div class="button-container">
+        <button class="option-btn" (click)="checkAnswer('A')">A</button>
+        <button class="option-btn" (click)="checkAnswer('C')">C</button>
+        <button class="option-btn" (click)="checkAnswer('Z')">Z</button>
+        <button class="option-btn" (click)="checkAnswer('Q')">Q</button>
+    </div>
+
+    <div *ngIf="showMessage" class="message-box message-box-white">
+        <div *ngIf="isCorrect && showSolutionContent">
+            <div class="solution-header">La respuesta correcta es la C</div>
+            <p>Puedes obtener esta respuesta siguiendo paso a paso cada salto del canguro, pero una forma más rápida es notar que el camino directo de 10 saltos está bloqueado en varios tramos y cada obstáculo obliga a un pequeño rodeo. Al contar esos desvíos se ve que en total se agregan 4 saltos más, por lo que el recorrido mínimo resulta en 14 saltos.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="showComputationalExplanation()">¿Por qué es pensamiento computacional?</button>
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+            </div>
+        </div>
+
+        <div *ngIf="!isCorrect">
+            <p>Respuesta incorrecta. Inténtalo de nuevo.</p>
+            <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+        </div>
+
+        <div *ngIf="isCorrect && !showSolutionContent">
+            <div class="solution-header">¿Por qué es pensamiento computacional?</div>
+            <p>Es pensamiento computacional porque el reto exige analizar restricciones (los ladrillos que bloquean), planificar rutas posibles, descartar caminos inválidos y optimizar el recorrido hasta hallar la solución mínima. Este proceso se parece a diseñar un algoritmo que busca la ruta más corta en un grafo, aplicando lógica paso a paso para resolver un problema complejo de forma eficiente.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+                <button *ngIf="showActivity5Button" class="next-btn" (click)="goToActivity5()">Ir a Actividad 5</button>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="isFullScreen" class="exit-message">
+        <p>Para salir de pantalla completa, presiona la tecla **ESC**</p>
+    </div>
+</div>

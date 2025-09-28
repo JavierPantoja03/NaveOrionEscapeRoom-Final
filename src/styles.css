@@ -1,1 +1,429 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importa la fuente Montserrat para un estilo moderno y legible */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Estilos básicos para todo el documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background: linear-gradient(145deg, #0d1222 0%, #151e39 50%, #202b54 100%);
+}
+
+/* Contenedor para las burbujas flotantes */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Estilos de las burbujas */
+.bubbles .bubble {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.bubbles .bubble:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.bubbles .bubble:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.bubbles .bubble:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.bubbles .bubble:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.bubbles .bubble:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.bubbles .bubble:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.bubbles .bubble:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.bubbles .bubble:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.bubbles .bubble:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.bubbles .bubble:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+/* Animación de las burbujas */
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+/* Estilos del encabezado principal */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(18, 22, 40, 0.75);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid #5a5eff;
+    box-shadow: 0 0 40px rgba(90, 94, 255, 0.5);
+    transition: all 0.5s ease-in-out;
+}
+
+.header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.5em;
+    margin-bottom: 5px;
+    color: #fff; /* CORRECCIÓN: El título del header ahora es blanco */
+    text-shadow: 0 0 20px #5a5eff, 0 0 30px #5a5eff;
+    letter-spacing: 2px;
+}
+
+.header p {
+    color: #c0d9ff;
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+/* Estilos del contenedor principal */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos de la barra de estado (ej. progreso, energía) */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 22, 40, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #3d4a6f;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.progress {
+    font-size: 1.25em;
+    color: #a4e4ff;
+    font-weight: 600;
+}
+
+.energy {
+    font-size: 1.25em;
+    color: #ffb75e;
+    font-weight: 600;
+}
+
+/* Estilos del menú principal */
+.main-menu-container {
+    background: rgba(18, 22, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 25px;
+    border: 2px solid #3d4a6f;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.main-menu-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: #a4e4ff;
+    text-shadow: 0 0 10px rgba(90, 94, 255, 0.8);
+    letter-spacing: 1.5px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+/* Estilos de los botones del menú */
+.menu-btn {
+    background: linear-gradient(45deg, #4d4dff, #5a5eff);
+    color: #ffffff;
+    border: none;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(90, 94, 255, 0.5);
+    text-decoration: none;
+    display: block;
+}
+
+.menu-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 30px rgba(90, 94, 255, 0.8), 0 8px 25px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #5a5eff, #8c8cff);
+}
+
+.menu-btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(90, 94, 255, 0.6);
+}
+
+/* Contenedor de puzzles y estilos relacionados */
+.puzzle-container {
+    background: rgba(18, 22, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 25px;
+    border: 2px solid #3d4a6f;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.puzzle-container.active {
+    display: block;
+    animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.puzzle-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    color: #a4e4ff;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(90, 94, 255, 0.8);
+    letter-spacing: 1.5px;
+}
+
+/* Mensajes del robot R-42 (ajustando colores para la nueva paleta) */
+.robot-message {
+    background: rgba(43, 49, 78, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border-left: 5px solid #ffb75e;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.robot-message::before {
+    content: "🤖 R-42: ";
+    font-weight: bold;
+    color: #ffb75e;
+}
+
+/* Estilos de botones generales */
+.btn {
+    background: linear-gradient(45deg, #5a5eff, #8c8cff);
+    color: #171b30;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(90, 94, 255, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #8c8cff, #5a5eff);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(90, 94, 255, 0.5);
+}
+
+.btn:disabled {
+    background: #3d4a6f;
+    color: #7b84a9;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Estilos para la imagen flotante en la esquina inferior derecha */
+.floating-image {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: auto;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.floating-image:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* Media Queries para adaptar a dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .status-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header h1 {
+        font-size: 2.5em;
+        letter-spacing: 1px;
+    }
+
+    .puzzle-title {
+        font-size: 2em;
+    }
+    
+    .button-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .sequence-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .pattern-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .grid-container {
+        max-width: 250px;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .grid-cell {
+        font-size: 1.2em;
+    }
+
+    .robot-message {
+        font-size: 1em;
+        padding: 18px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 1em;
+        margin: 8px;
+    }
+
+    .input-code {
+        width: 120px;
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    .final-celebration h1 {
+        font-size: 2.5em;
+    }
+    .final-celebration h2 {
+        font-size: 1.8em;
+    }
+    .final-celebration p {
+        font-size: 1.2em;
+    }
+}

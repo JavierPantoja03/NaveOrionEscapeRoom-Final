@@ -1,0 +1,59 @@
+<div class="activity-container">
+    <div class="top-controls-container">
+        <div class="left-controls">
+            <button class="back-btn" (click)="goBack()">Atrás</button>
+        </div>
+        
+    </div>
+
+    <div #imageWrapper class="image-wrapper" [ngClass]="{'full-screen': isFullScreen}" (mousedown)="startDrag($event)" (mousemove)="drag($event)" (mouseup)="stopDrag()" (mouseleave)="stopDrag()">
+        <img #mainImage src="assets/img/BOTON 3.jpeg" 
+             alt="Imagen principal de la actividad" 
+             class="main-image"
+             [style.transform]="'scale(' + zoomLevel + ') translate(' + panX + 'px, ' + panY + 'px)'"
+             [style.cursor]="isDragging ? 'grabbing' : 'grab'">
+    </div>
+
+    <div class="bottom-controls-container">
+        <button class="zoom-btn" (click)="zoomIn()">+</button>
+        <button class="zoom-btn" (click)="zoomOut()">-</button>
+        <button *ngIf="!isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Pantalla Completa</button>
+        <button *ngIf="isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Salir de Pantalla Completa</button>
+    </div>
+
+    <div class="button-container">
+        <button class="option-btn" (click)="checkAnswer('L')">L</button>
+        <button class="option-btn" (click)="checkAnswer('S')">S</button>
+        <button class="option-btn" (click)="checkAnswer('E')">E</button>
+        <button class="option-btn" (click)="checkAnswer('R')">R</button>
+    </div>
+
+    <div *ngIf="showMessage" class="message-box message-box-white">
+        <div *ngIf="isCorrect && showSolutionContent">
+            <div class="solution-header">La respuesta correcta es la R</div>
+            <p>Puedes llegar a la solución probando cada paso, pero más rápido es ver el patrón de saltos en la opción R: desde la casilla 1 un X te lleva a 4, otro X a 7, luego un O te devuelve a 6 y a partir de ahí hay una cadena de X que avanza 9 → 12 → 15; después un O retrocede a 14 y ese X final te lleva exactamente a la 17. Es decir, R organiza los X y O de modo que, pese a pequeños retrocesos, las secuencias de X producen el avance neto necesario para alcanzar la moneda.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="showComputationalExplanation()">¿Por qué es pensamiento computacional?</button>
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+            </div>
+        </div>
+
+        <div *ngIf="!isCorrect">
+            <p>Respuesta incorrecta. Inténtalo de nuevo.</p>
+            <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+        </div>
+
+        <div *ngIf="isCorrect && !showSolutionContent">
+            <div class="solution-header">¿Por qué es pensamiento computacional?</div>
+            <p>Es pensamiento computacional porque para resolverlo se deben seguir reglas claras, simular paso a paso los movimientos y detectar patrones que permiten avanzar hacia la meta. Además, implica evaluar distintas opciones (L, S, E, R), descartar las que generan ciclos o errores y quedarse con la única que cumple el objetivo, lo cual es muy parecido a diseñar y depurar un algoritmo en programación.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+                <button *ngIf="showActivity4Button" class="next-btn" (click)="goToActivity4()">Ir a Actividad 4</button>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="isFullScreen" class="exit-message">
+        <p>Para salir de pantalla completa, presiona la tecla **ESC**</p>
+    </div>
+</div>

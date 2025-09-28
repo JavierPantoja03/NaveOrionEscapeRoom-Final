@@ -1,0 +1,198 @@
+/* --- Estilos para introduccion-chikos-net.css --- */
+
+/* -------------------------------------------------------------------------- */
+/* AJUSTES GLOBALES: FUENTE Y FONDO */
+/* -------------------------------------------------------------------------- */
+
+/* Si usas Angular o tu archivo principal, añade la importación de la fuente Poppins: 
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+*/
+.mission-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+    padding: 4rem 8%;
+    background: #0d1222; 
+    color: #e0e7ff;
+    font-family: 'Poppins', sans-serif; 
+    text-align: left; 
+    position: relative; 
+}
+
+/* -------------------------------------------------------------------------- */
+/* BOTÓN DE INICIO */
+/* -------------------------------------------------------------------------- */
+
+.top-controls {
+    position: fixed; 
+    top: 25px; 
+    left: 25px; 
+    z-index: 100; 
+}
+
+.home-btn {
+    padding: 0.8rem 1.8rem; 
+    font-size: 1.1rem;
+    font-weight: 600; 
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    background: linear-gradient(135deg, #202b54, #151e39); 
+    color: #a4e4ff; 
+    border: 1px solid #5a5eff; 
+    box-shadow: 0 0 15px rgba(90, 94, 255, 0.4); 
+}
+
+.home-btn:hover {
+    background: linear-gradient(135deg, #303b63, #202b54);
+    transform: translateY(-2px) scale(1.02); 
+    box-shadow: 0 5px 20px rgba(90, 94, 255, 0.7);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* ESTRUCTURA DEL CONTENIDO Y RESALTADO DE TEXTO */
+/* -------------------------------------------------------------------------- */
+
+.mission-header, .mission-body {
+    max-width: 900px; 
+    width: 100%;
+    margin-bottom: 2.5rem;
+    padding: 2rem; 
+    background: #1a2441; 
+    border-radius: 16px; 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+.organization-title {
+    font-size: 3.2rem; 
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: #a4e4ff; 
+    text-align: center;
+    text-shadow: 0 0 15px rgba(164, 228, 255, 0.7); 
+}
+
+.mission-lead {
+    font-size: 1.6rem; 
+    font-style: italic;
+    color: #ffcc00; 
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(255, 204, 0, 0.5); 
+}
+
+.mission-body p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    color: #c7d2e0;
+}
+
+/* ⭐️ ESTILO: Resaltado de la frase clave "activa, crítica y creativa" ⭐️ */
+.resaltado-clave {
+    font-weight: 800; 
+    color: #f7d738; 
+    padding: 2px 4px;
+    border-radius: 3px;
+    background-color: rgba(247, 215, 56, 0.1);
+}
+
+.sub-title {
+    font-size: 2.2rem;
+    color: #61ffc4; 
+    border-bottom: 3px solid #61ffc4;
+    padding-bottom: 0.6rem;
+    margin-top: 3rem; 
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/* LISTA DE OBJETIVOS */
+/* -------------------------------------------------------------------------- */
+
+.objective-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.objective-list li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    padding: 1rem 1.2rem; 
+    border-bottom: 1px solid rgba(164, 228, 255, 0.08); 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.objective-list li:hover {
+    background-color: rgba(90, 94, 255, 0.15); 
+    border-radius: 8px;
+    transform: translateX(5px); 
+}
+
+.emoji-icon {
+    font-size: 1.6rem; 
+    margin-right: 15px;
+    color: #61ffc4; 
+    vertical-align: middle;
+}
+
+.mission-footer {
+    font-size: 1.4rem; 
+    font-weight: 600;
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    color: #a4e4ff; 
+    border-top: 2px dashed rgba(90, 94, 255, 0.5);
+    line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ESTILOS DE CRÉDITOS (Aunque no se usan en el HTML, las reglas están aquí por si las necesitas en otra página) */
+/* -------------------------------------------------------------------------- */
+
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 20px; 
+    left: 30px; 
+    z-index: 50; 
+}
+
+.author-credits {
+    text-align: left;
+    padding: 10px 15px;
+    background: rgba(21, 30, 57, 0.85); 
+    border-radius: 8px;
+    border-left: 5px solid #a4e4ff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.author-credits p {
+    margin: 2px 0; 
+    font-size: 0.9rem;
+    color: #c7d2e0; 
+    line-height: 1.2;
+}
+
+.author-credits p:first-child {
+    font-weight: bold;
+    color: #f7d738; 
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.author-name {
+    font-family: 'Times New Roman', Times, serif; 
+    font-style: italic;
+    font-size: 1.1rem !important; 
+    color: #a4e4ff; 
+    text-shadow: 0 0 5px rgba(164, 228, 255, 0.3);
+}

@@ -1,0 +1,262 @@
+/* ... [Estilos anteriores, como .activity-container, .main-title, etc., van aquí] ... */
+
+/* -------------------------------------------------------------------------- */
+/* NUEVOS ESTILOS PARA EL BOTÓN DE INICIO                                     */
+/* -------------------------------------------------------------------------- */
+
+.top-controls {
+    position: absolute;
+    top: 20px; /* Distancia desde arriba */
+    left: 30px; /* Distancia desde la izquierda */
+    z-index: 30; /* Asegura que esté por encima de todo */
+}
+
+.back-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Estilo del botón */
+    background: linear-gradient(45deg, #444a63, #333a52); /* Gris oscuro/azulado */
+    color: #a4e4ff;
+    border: 2px solid #5a5eff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.back-btn:hover {
+    background: linear-gradient(45deg, #505877, #404a63);
+    transform: scale(1.05);
+}
+
+/* ... [El resto de tus estilos (.input-container, .check-btn, .confetti-container, etc.) van aquí] ... */
+
+/* Asegúrate de que tu CSS final contenga todos los estilos, incluyendo los nuevos */
+.activity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem;
+    background: #0d1222; /* Fondo oscuro */
+    color: #e0e7ff;
+    text-align: center;
+    overflow: hidden; 
+    position: relative;
+}
+
+/* Títulos con estilo llamativo */
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: #f7d738; /* Dorado */
+    text-shadow: 0 0 15px rgba(247, 215, 56, 0.8), 0 0 5px #000;
+}
+
+.subtitle {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #a4e4ff; /* Azul brillante */
+}
+
+.instruction-text {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    color: #c7d2e0;
+}
+
+/* Contenedor de los inputs de las letras */
+.input-container {
+    display: flex;
+    gap: 1.5rem; 
+    margin-bottom: 3rem;
+    /* Efecto de inclinación sutil */
+    transform: perspective(1000px) rotateX(10deg); 
+}
+
+.letra-input {
+    width: 70px; 
+    height: 90px; 
+    font-size: 3.5rem;
+    text-align: center;
+    border: none;
+    border-bottom: 6px solid #5a5eff; /* Guion azul */
+    background: transparent;
+    color: #f7d738;
+    caret-color: transparent; /* Oculta el cursor para un look más limpio */
+    outline: none;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.letra-input:focus {
+    border-bottom: 6px solid #a4e4ff;
+    transform: scale(1.05);
+}
+
+/* Controles */
+.control-buttons {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.check-btn, .reset-btn, .next-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.check-btn {
+    background: linear-gradient(45deg, #1e7e34, #28a745);
+    color: #ffffff;
+}
+
+.check-btn:hover {
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+    transform: translateY(-3px);
+}
+
+.reset-btn {
+    background: #151e39;
+    border: 2px solid #5a5eff;
+    color: #a4e4ff;
+}
+
+.reset-btn:hover {
+    background: #202b54;
+    transform: scale(1.05);
+}
+
+.next-btn {
+    margin-top: 1rem;
+    background: linear-gradient(45deg, #5a5eff, #8c8cff);
+    color: #ffffff;
+}
+.next-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Estilos de mensajes */
+.message-box-final {
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 20; 
+}
+
+.correct-message {
+    background: linear-gradient(135deg, #e6ffec, #c8ffd5);
+    color: #1e7e34; 
+    border: 5px solid #28a745;
+    animation: pulse 1.5s infinite alternate;
+}
+
+.incorrect-message {
+    background: linear-gradient(135deg, #ffe6e6, #ffd1d1);
+    color: #dc3545; 
+    border: 5px solid #dc3545;
+}
+
+/* Animación de pulsación para el mensaje de éxito */
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ESTILOS Y ANIMACIÓN DE GLOBOS                                              */
+/* -------------------------------------------------------------------------- */
+
+.confetti-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+[class^="balloon-"] {
+    position: absolute;
+    width: 60px;
+    height: 85px;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: 0.9;
+    bottom: -120px; 
+    animation: floatUp 5s ease-out infinite; 
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));
+}
+
+/* Cola/hilo del globo */
+[class^="balloon-"]::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 3px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.7);
+    transform: translateX(-50%);
+}
+
+/* Definición de colores y posiciones iniciales con retrasos mínimos */
+.balloon-1 {
+    left: 5%;
+    background-color: #ff6f61; /* Rojo */
+    animation-duration: 4s; 
+    animation-delay: 0s;     
+}
+
+.balloon-2 {
+    left: 35%;
+    background-color: #61ffc4; /* Verde */
+    animation-duration: 5s;
+    animation-delay: 0.2s;    
+}
+
+.balloon-3 {
+    left: 65%;
+    background-color: #618fff; /* Azul */
+    animation-duration: 4.5s;
+    animation-delay: 0.4s;
+}
+
+.balloon-4 {
+    left: 95%;
+    background-color: #f5ff61; /* Amarillo */
+    animation-duration: 5.5s;
+    animation-delay: 0.1s;
+}
+
+/* Animación para que los globos suban y se balanceen */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-50vh) rotate(5deg); 
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(-5deg);
+        opacity: 0;
+    }
+}

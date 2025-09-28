@@ -1,0 +1,217 @@
+/* Contenedor principal de la actividad */
+.activity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+    background: #0d1222;
+    color: #e0e7ff;
+}
+
+/* Contenedor de los controles superiores (solo el botón Atrás) */
+.top-controls-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea el botón Atrás a la izquierda */
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+    padding: 0 1rem; /* Añade un poco de padding para que no esté pegado al borde */
+}
+
+/* Contenedor para los botones de zoom y pantalla completa, centrados */
+.bottom-controls-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem; /* Margen superior para separarlo de la imagen */
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+    justify-content: center; /* Centra los botones */
+    width: 100%; /* Ocupa todo el ancho disponible para centrar bien */
+}
+
+
+/* Estilos de la imagen principal */
+.image-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para la imagen en pantalla completa */
+.image-wrapper.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+}
+
+.main-image {
+    max-width: 95%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(90, 94, 255, 0.5);
+    filter: 
+        brightness(0.9)
+        contrast(1.1)
+        saturate(1.1);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+}
+
+.zoom-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #5a5eff;
+    border-radius: 50%;
+    background-color: #151e39;
+    color: #a4e4ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background-color: #202b54;
+    transform: scale(1.1);
+}
+
+/* Estilos de los botones de opción */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.option-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #5a5eff;
+    border-radius: 10px;
+    background-color: #151e39;
+    color: #a4e4ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+    background-color: #202b54;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(90, 94, 255, 0.3);
+}
+
+/* Estilos para el cuadro de mensaje */
+.message-box {
+    text-align: center;
+    background: rgba(18, 22, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border: 2px solid #3d4a6f;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+    max-width: 600px;
+}
+
+/* Nueva clase para el fondo blanco */
+.message-box-white {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 2px solid #5a5eff;
+}
+
+/* Estilo para el título de la solución */
+.solution-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 2px solid #663399;
+    border-radius: 5px;
+    color: #663399;
+}
+
+.next-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #5a5eff, #8c8cff);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(90, 94, 255, 0.4);
+}
+
+/* Contenedor para los botones del mensaje */
+.message-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* Nuevo estilo para el mensaje de salida (ajustado para ser visible) */
+.exit-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 101;
+    text-shadow: 1px 1px 2px black;
+}
+.back-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #28a745;
+    border-radius: 10px;
+    background-color: #1a4220;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #1e5a2a;
+    transform: scale(1.05);
+}
+
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 768px) {
+    .button-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .option-btn {
+        width: 45%;
+        margin-bottom: 0.5rem;
+    }
+}

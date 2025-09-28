@@ -1,0 +1,331 @@
+/* Asegúrate de que esta importación sea válida en tu entorno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* -------------------------------------------------------------------------- */
+/* VARIABLES Y GLOBAL STYLES */
+/* -------------------------------------------------------------------------- */
+
+:root {
+    /* Fondo Oscuro / Base */
+    --primary-dark-bg: #0d1222;
+    --card-bg: #1a2441; /* Fondo de la sección de contenido */
+    --primary-text-light: #e0e7ff; 
+    /* Colores Originales Restaurados */
+    --secondary-accent: #3498db; /* Azul Principal */
+    --tertiary-accent: #f39c12; /* Dorado Cita */
+    
+    /* Degradados y Sombras Originales */
+    --gradient-start: #1c2c4a;
+    --gradient-end: #0d1222;
+    --border-color-light: #4a6fa8; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff; 
+    background-color: var(--primary-dark-bg);
+}
+
+.activity-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BOTÓN DE RETROCESO (Top Left - Nuevo) */
+/* -------------------------------------------------------------------------- */
+
+/* 🚀 CAMBIO: Nueva clase para la esquina superior izquierda */
+.top-left-controls-container {
+    position: fixed;
+    top: 30px; /* Separación de arriba */
+    left: 30px; /* Separación de la izquierda */
+    z-index: 1000; /* Aseguramos que esté por encima de todo */
+}
+
+.back-btn {
+    padding: 0.8rem 1.2rem; /* Padding ajustado para un botón de inicio */
+    font-size: 1.1rem;
+    font-weight: 600;
+    /* Estilo limpio de acento */
+    border: 2px solid var(--secondary-accent);
+    border-radius: 8px; 
+    background-color: var(--gradient-start);
+    color: #ffffff; 
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.back-btn:hover {
+    background-color: #2a3d60;
+    transform: scale(1.05); /* Escala suave al hacer hover */
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.6);
+    border-color: var(--tertiary-accent);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TÍTULOS Y CONTENIDO PRINCIPAL */
+/* -------------------------------------------------------------------------- */
+
+.header {
+    text-align: center;
+    margin-bottom: 3em;
+    width: 100%;
+    max-width: 900px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 3.5em; 
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+    text-shadow: 0 0 25px rgba(52, 152, 219, 0.9);
+}
+
+h1::after {
+    content: '';
+    width: 150px; 
+    height: 5px; 
+    background-color: var(--secondary-accent);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.content-section {
+    padding: 40px 60px; 
+    border-radius: 15px;
+    max-width: 900px;
+    width: 100%; 
+    background-color: var(--card-bg); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    text-align: left; 
+    animation: fadeIn 1.5s ease-in-out;
+    color: #fff; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section p {
+    line-height: 1.8;
+    font-size: 1.15em;
+    margin-bottom: 1.5em;
+    color: #fff; 
+    /* 🌟 SOLUCIÓN: Sombra muy suave para que el texto 'salga' y se vea más brillante */
+    text-shadow: 0 0 0.5px #fff; 
+}
+
+.quote {
+    font-style: italic;
+    color: var(--tertiary-accent); 
+    margin-top: -0.5em; 
+    margin-bottom: 2.5em;
+    font-size: 1.25em;
+    font-weight: 400; 
+    border-left: 5px solid var(--tertiary-accent); 
+    padding-left: 15px;
+    text-align: left;
+    text-shadow: 0 0 5px rgba(243, 156, 18, 0.7); 
+}
+
+.highlight {
+    color: var(--secondary-accent); 
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(52, 152, 219, 0.9); 
+}
+
+h2 {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    padding-bottom: 10px;
+    display: inline-block;
+    position: relative;
+    text-align: center; 
+    width: 100%;
+}
+
+h2::after {
+    content: '';
+    width: 150px;
+    height: 3px;
+    background-color: var(--secondary-accent); 
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* LISTA DE COMPONENTES CLAVE (ul/li) */
+/* -------------------------------------------------------------------------- */
+
+.key-components ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.key-components li {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); 
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #fff; 
+    display: flex;
+    align-items: flex-start;
+    border-left: 5px solid var(--secondary-accent); 
+    text-shadow: 0 0 0.5px #fff; 
+}
+
+.key-components li:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px var(--secondary-accent);
+    background: linear-gradient(135deg, #2a3d60, #1c2c4a); 
+    border-left-color: var(--tertiary-accent);
+}
+
+.key-components li strong {
+    color: var(--secondary-accent); 
+    font-size: 1.3em; 
+    font-weight: 700;
+    display: inline; 
+    margin-right: 8px; 
+    padding-bottom: 0;
+    text-shadow: 0 0 5px rgba(52, 152, 219, 0.7); 
+}
+
+.key-components li strong::after {
+    content: none;
+}
+
+.key-components .emoji-icon {
+    font-size: 3em; 
+    margin-right: 25px;
+    line-height: 1;
+    color: var(--tertiary-accent); 
+    flex-shrink: 0;
+}
+
+.key-components li:hover .emoji-icon {
+    transform: scale(1.1); 
+    color: var(--secondary-accent); 
+}
+
+/* -------------------------------------------------------------------------- */
+/* IMAGEN FLOTANTE (Robot) */
+/* -------------------------------------------------------------------------- */
+
+.floating-image {
+    position: fixed;
+    bottom: 40px; 
+    right: 40px;
+    width: 200px; 
+    height: auto;
+    z-index: 50; 
+    opacity: 0.95;
+    transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 0 20px rgba(52, 152, 219, 0.9));
+}
+
+.floating-image:hover {
+    transform: translateY(-10px) scale(1.05);
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(243, 156, 18, 1)); 
+}
+
+/* -------------------------------------------------------------------------- */
+/* MEDIA QUERIES (Responsividad) */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .content-section {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 🚀 CAMBIO: Adaptamos la posición superior izquierda para móviles */
+    .top-left-controls-container {
+        top: 20px;
+        left: 20px;
+    }
+    .back-btn {
+        font-size: 1rem;
+        padding: 0.6rem 1rem; /* Botón más pequeño */
+    }
+    h1 {
+        font-size: 2.8em;
+    }
+    h1::after {
+        width: 80px;
+        height: 4px;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h2::after {
+        width: 100px;
+    }
+    .content-section {
+        padding: 20px;
+    }
+    .content-section p {
+        font-size: 1.1em;
+    }
+    .key-components li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 0;
+    }
+    .key-components .emoji-icon {
+        margin-right: 15px;
+        margin-bottom: 0;
+        font-size: 2.5em;
+        align-self: flex-start;
+    }
+    .key-components li strong {
+        display: inline;
+        font-size: 1.2em;
+        margin-top: 5px;
+    }
+    .quote {
+        font-size: 1.1em;
+    }
+    .floating-image {
+        width: 100px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

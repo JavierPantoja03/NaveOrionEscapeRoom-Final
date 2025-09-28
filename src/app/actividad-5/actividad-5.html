@@ -1,0 +1,59 @@
+<div class="activity-container">
+    <div class="top-controls-container">
+        <div class="left-controls">
+            <button class="back-btn" (click)="goBack()">Atrás</button>
+        </div>
+        
+    </div>
+
+    <div #imageWrapper class="image-wrapper" [ngClass]="{'full-screen': isFullScreen}" (mousedown)="startDrag($event)" (mousemove)="drag($event)" (mouseup)="stopDrag()" (mouseleave)="stopDrag()">
+        <img #mainImage src="assets/img/BOTON 5.jpeg" 
+             alt="Imagen principal de la actividad" 
+             class="main-image"
+             [style.transform]="'scale(' + zoomLevel + ') translate(' + panX + 'px, ' + panY + 'px)'"
+             [style.cursor]="isDragging ? 'grabbing' : 'grab'">
+    </div>
+
+    <div class="bottom-controls-container">
+        <button class="zoom-btn" (click)="zoomIn()">+</button>
+        <button class="zoom-btn" (click)="zoomOut()">-</button>
+        <button *ngIf="!isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Pantalla Completa</button>
+        <button *ngIf="isFullScreen" class="zoom-btn" (click)="toggleFullScreen()">Salir de Pantalla Completa</button>
+    </div>
+
+    <div class="button-container">
+        <button class="option-btn" (click)="checkAnswer('O')">O</button>
+        <button class="option-btn" (click)="checkAnswer('P')">P</button>
+        <button class="option-btn" (click)="checkAnswer('S')">S</button>
+        <button class="option-btn" (click)="checkAnswer('R')">R</button>
+    </div>
+
+    <div *ngIf="showMessage" class="message-box message-box-white">
+        <div *ngIf="isCorrect && showSolutionContent">
+            <div class="solution-header">La respuesta correcta es la O</div>
+            <p>Puedes obtener esta respuesta siguiendo paso a paso cada árbol en el mapa y viendo si realmente llevan a la casa, pero una forma más rápida es notar que la opción O está construida con una secuencia de nodos que están conectados de manera directa sin interrupciones. Cada árbol enlaza con el siguiente hasta llegar a la casita, lo que confirma que ese es el único camino válido.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="showComputationalExplanation()">¿Por qué es pensamiento computacional?</button>
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+            </div>
+        </div>
+
+        <div *ngIf="!isCorrect">
+            <p>Respuesta incorrecta. Inténtalo de nuevo.</p>
+            <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+        </div>
+
+        <div *ngIf="isCorrect && !showSolutionContent">
+            <div class="solution-header">¿Por qué es pensamiento computacional?</div>
+            <p>Es pensamiento computacional porque el reto exige representar el problema como un grafo de nodos y conexiones, seguir reglas paso a paso para comprobar los caminos posibles y descartar las rutas inválidas hasta encontrar la única que llega a la meta. En esencia, se trata de analizar, planificar y verificar un recorrido óptimo, igual que lo haría un algoritmo de búsqueda en informática.</p>
+            <div class="message-buttons">
+                <button class="next-btn" (click)="closeMessage()">Cerrar</button>
+                <button *ngIf="showGoHomeButton" class="next-btn" (click)="goToHome()">Volver al Inicio</button> 
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="isFullScreen" class="exit-message">
+        <p>Para salir de pantalla completa, presiona la tecla **ESC**</p>
+    </div>
+</div>

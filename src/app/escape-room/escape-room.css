@@ -1,0 +1,100 @@
+/*
+ * NOTA: Este código asume que tienes estilos base definidos para .container, 
+ * .header, .main-menu-container, etc., que no me has proporcionado.
+ * Se enfoca en las secciones solicitadas: la cuadrícula de botones y los créditos.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* ESTILOS DE LA CUADRÍCULA DE BOTONES (Mejora de Espaciado) */
+/* -------------------------------------------------------------------------- */
+
+.main-menu-container {
+    /* Asegúrate de que este contenedor centralice tu cuadrícula */
+    padding: 2rem;
+    text-align: center;
+}
+
+/* 🚀 NUEVO ESTILO: Título del menú en blanco 🚀 */
+.main-menu-container h2 {
+    color: #FFFFFF; /* Color blanco para el título */
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.button-grid {
+    display: grid;
+    /* 🚀 CLAVE: Aumentamos el espaciado para separar los botones 🚀 */
+    gap: 2rem; /* Aumentado a 2rem para un buen espacio visual */
+    
+    /* Configuración de la cuadrícula (asumiendo 2 columnas) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 900px; 
+    margin: 2rem auto;
+    width: 100%;
+}
+
+.menu-btn {
+    /* Hacemos los botones más grandes para llenar el espacio */
+    padding: 1.2rem 1.5rem; 
+    font-size: 1.15rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Ejemplo de estilo (ajusta a tu paleta) */
+    background: linear-gradient(135deg, #151e39, #202b54);
+    color: #a4e4ff;
+    border: 2px solid #5a5eff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.menu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(90, 94, 255, 0.5);
+    background: linear-gradient(135deg, #202b54, #303b63);
+}
+
+/* -------------------------------------------------------------------------- */
+/* ESTILOS PARA CRÉDITOS DE AUTORES (Flotante) */
+/* -------------------------------------------------------------------------- */
+
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 20px; 
+    left: 30px; 
+    z-index: 50; 
+}
+
+.author-credits {
+    text-align: left;
+    padding: 10px 15px;
+    background: rgba(21, 30, 57, 0.7); /* Fondo semi-transparente */
+    border-radius: 8px;
+    border-left: 5px solid #a4e4ff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.author-credits p {
+    margin: 2px 0; 
+    font-size: 0.9rem;
+    color: #c7d2e0; 
+    line-height: 1.2;
+}
+
+.author-credits p:first-child {
+    font-weight: bold;
+    color: #f7d738; 
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.author-name {
+    font-family: 'Times New Roman', Times, serif; 
+    font-style: italic;
+    font-size: 1.1rem !important; 
+    color: #a4e4ff; 
+    text-shadow: 0 0 5px rgba(164, 228, 255, 0.3);
+}
