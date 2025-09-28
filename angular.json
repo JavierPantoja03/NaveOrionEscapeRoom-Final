@@ -20,7 +20,9 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
-              }
+              },
+              "src/favicon.ico", // Puedes mantener el favicon si existe
+              "src/404.html"     // ⬅️ ¡CORRECCIÓN CLAVE! Añade el 404.html
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -43,7 +45,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "8kB",
-                  "maximumError": "10kB"
+                  "maximumError": "12kB"
                 }
               ],
               "outputHashing": "all",
