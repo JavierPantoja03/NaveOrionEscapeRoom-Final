@@ -22,7 +22,7 @@
                 "output": "assets"
               },
               "src/favicon.ico",
-              "src/404.html"   
+              "src/404.html"    
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -48,8 +48,8 @@
                   "maximumError": "12kB"
                 }
               ],
-              "outputHashing": "all",
-              "baseHref": "/NaveOrionEscapeRoom-Final/" 
+              "outputHashing": "all"
+              
             },
             "development": {
               "optimization": false,
@@ -58,11 +58,10 @@
           },
           "defaultConfiguration": "production"
         },
-        
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/NaveOrionEscapeRoom-Final/", 
+            
             "dir": "dist/NaveOrionEscapeRoom"
           }
         }
